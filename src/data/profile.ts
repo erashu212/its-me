@@ -58,8 +58,8 @@ export const profile: Profile = {
   location: 'Pune, India',
   phone: '+91-9503999217',
   email: 'ashu.singh212@gmail.com',
-  // Provide a hosted PDF URL here when available. If null, the button will be hidden in UI.
-  resumeUrl: null,
+  // Replace this with your actual hosted resume PDF URL (e.g., Google Drive, Dropbox, or GitHub)
+  resumeUrl: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID',
   socials: {
     github: 'https://github.com/erashu212',
     linkedin: 'https://www.linkedin.com/in/ashu212/',

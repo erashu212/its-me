@@ -30,11 +30,11 @@ const Hero: React.FC = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse-soft"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-100/20 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }}></div>
+      {/* Subtle background elements - optimized for mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-200/30 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[600px] h-80 sm:h-[600px] bg-purple-100/20 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="container-custom relative z-10">
@@ -76,23 +76,23 @@ const Hero: React.FC = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="mb-8 px-4">
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-gray-700">
-              <div className="flex items-center gap-2 glass-card px-4 py-3 rounded-xl">
-                <MapPin className="w-5 h-5 text-blue-600" />
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-gray-700 text-sm sm:text-base">
+              <div className="flex items-center gap-2 glass-card px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
                 <span className="font-medium">{location}</span>
               </div>
               <a
                 href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-                className="flex items-center gap-2 glass-card px-4 py-3 rounded-xl hover:shadow-xl transition-shadow"
+                className="flex items-center gap-2 glass-card px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:shadow-xl transition-shadow"
               >
-                <Phone className="w-5 h-5 text-indigo-600" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600 flex-shrink-0" />
                 <span className="font-medium">{phone}</span>
               </a>
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-2 glass-card px-4 py-3 rounded-xl hover:shadow-xl transition-shadow"
+                className="flex items-center gap-2 glass-card px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:shadow-xl transition-shadow break-all"
               >
-                <Mail className="w-5 h-5 text-purple-600" />
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 flex-shrink-0" />
                 <span className="font-medium">{email}</span>
               </a>
             </div>
@@ -113,8 +113,7 @@ const Hero: React.FC = () => {
               {resumeUrl && (
                 <motion.a
                   href={resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download="Ashutosh_Singh_Resume.pdf"
                   className="btn-primary inline-flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
