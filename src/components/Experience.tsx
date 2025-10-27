@@ -132,7 +132,7 @@ const typeStyles = (type: ExperienceItem['type']) => {
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className="section-padding bg-gray-50">
+    <section id="experience" className="section-padding bg-white dark:bg-gray-800">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -142,34 +142,27 @@ const Experience: React.FC = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               <span className="text-gradient">Experience</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               A journey of 13+ years in software engineering and team leadership
             </p>
           </motion.div>
 
-          {/* Vertical Timeline (simple + readable) */}
-          <div className="relative">
-            {/* vertical line */}
-            <div className="absolute left-4 sm:left-6 md:left-8 top-0 bottom-0 w-px bg-gray-200" />
-
-            <div className="space-y-8">
-              {experiences.map((exp, idx) => (
-                <motion.div
-                  key={`${exp.company}-${idx}`}
-                  variants={itemVariants}
-                  className="relative pl-10 sm:pl-12 md:pl-16"
-                >
-                  {/* dot */}
-                  <div className="absolute left-3 sm:left-5 md:left-7 top-2 w-3.5 h-3.5 rounded-full border-2 border-white shadow bg-primary-600" />
-
-                  {/* card */}
-                  <div className="card">
+          {/* Two-Column Experience Grid on Desktop, Single Column on Mobile */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={`${exp.company}-${idx}`}
+                variants={itemVariants}
+                className="relative"
+              >
+                {/* card */}
+                  <div className="card h-full hover:shadow-xl transition-shadow duration-300">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <Building className="w-5 h-5 text-primary-600" />
-                      <h3 className="text-xl font-bold text-gray-900">{exp.company}</h3>
+                      <Building className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.company}</h3>
                       <span
                         className={`ml-2 px-2.5 py-0.5 rounded-full text-xs font-semibold border ${typeStyles(
                           exp.type
@@ -185,11 +178,11 @@ const Experience: React.FC = () => {
                       </span>
                     </div>
 
-                    <h4 className="text-base md:text-lg font-semibold text-gray-800 mb-2">
+                    <h4 className="text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                       {exp.position}
                     </h4>
 
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
                       <div className="flex items-center gap-1.5">
                         <Calendar className="w-4 h-4" />
                         <span>{exp.period}</span>
@@ -203,8 +196,8 @@ const Experience: React.FC = () => {
                     {/* achievements */}
                     <ul className="space-y-2 mb-4">
                       {exp.achievements.map((a, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-700">
-                          <ChevronRight className="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                          <ChevronRight className="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm leading-relaxed">{a}</span>
                         </li>
                       ))}
@@ -215,16 +208,15 @@ const Experience: React.FC = () => {
                       {exp.technologies.map((t, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-primary-50 text-primary-700 text-xs rounded-full border border-primary-200"
+                          className="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-xs rounded-full border border-primary-200 dark:border-primary-700"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

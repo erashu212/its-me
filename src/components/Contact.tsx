@@ -1,34 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from 'lucide-react';
 import { profile } from '../data/profile';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // NOTE: No backend yet — static site. This simulates a submit.
-    await new Promise((r) => setTimeout(r, 1200));
-
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
-    alert("Thanks! Your message wasn't actually sent (no backend), but the contact links above are real.");
-  };
-
   const contactInfo = [
     {
       icon: Mail,
@@ -76,7 +51,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-gray-50">
+    <section id="contact" className="section-padding bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -86,21 +61,19 @@ const Contact: React.FC = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               <span className="text-gradient">Get In Touch</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Ready to discuss your next project or explore opportunities? Let's connect.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
+          {/* Contact Information - Centered Single Column */}
+          <div className="max-w-4xl mx-auto">
             <motion.div variants={itemVariants}>
               <div className="card">
-                <h3 className="text-2xl font-bold mb-6 text-gradient">Contact Information</h3>
-
-                <div className="space-y-4 mb-8">
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
                   {contactInfo.map((info, index) => {
                     const IconComponent = info.icon;
                     const Wrapper: React.ElementType = info.href ? 'a' : 'div';
@@ -108,20 +81,15 @@ const Contact: React.FC = () => {
                       <Wrapper
                         key={index}
                         href={info.href as any}
-                        className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                          info.href ? 'hover:bg-gray-50' : ''
+                        className={`text-center p-6 rounded-xl transition-all duration-300 ${
+                          info.href ? 'hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg' : ''
                         }`}
                       >
-                        <div className="p-3 bg-blue-50 rounded-xl border border-blue-100">
-                          <IconComponent className="w-6 h-6 text-blue-600" />
+                        <div className="inline-flex p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl border border-blue-100 dark:border-blue-700 mb-4">
+                          <IconComponent className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <div>
-                          <div className="text-sm text-gray-500">{info.label}</div>
-                          <div className="text-gray-800 font-medium">{info.value}</div>
-                        </div>
-                        {info.href && (
-                          <ExternalLink className="w-4 h-4 text-gray-400 ml-auto" />
-                        )}
+                        <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">{info.label}</div>
+                        <div className="text-gray-800 dark:text-gray-200 font-semibold">{info.value}</div>
                       </Wrapper>
                     );
                   })}
@@ -129,9 +97,9 @@ const Contact: React.FC = () => {
 
                 {/* Social Links */}
                 {(socialLinks?.length ?? 0) > 0 && (
-                  <div>
-                    <h4 className="text-lg font-semibold mb-4 text-gray-900">Follow</h4>
-                    <div className="flex gap-4">
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
+                    <h4 className="text-lg font-semibold mb-6 text-center text-gray-900 dark:text-white">Connect With Me</h4>
+                    <div className="flex justify-center gap-4">
                       {socialLinks.map((social, index) => {
                         const IconComponent = social.icon;
                         return (
@@ -140,12 +108,12 @@ const Contact: React.FC = () => {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`p-3 bg-white rounded-xl border border-gray-200 shadow-lg transition-all duration-300 ${social.color}`}
-                            whileHover={{ scale: 1.06 }}
+                            className={`p-4 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 shadow-lg transition-all duration-300 ${social.color}`}
+                            whileHover={{ scale: 1.08, y: -2 }}
                             whileTap={{ scale: 0.96 }}
                             aria-label={social.label}
                           >
-                            <IconComponent className="w-6 h-6" />
+                            <IconComponent className="w-7 h-7 dark:text-gray-300" />
                           </motion.a>
                         );
                       })}
@@ -153,125 +121,33 @@ const Contact: React.FC = () => {
                   </div>
                 )}
 
-                {/* Quick CTAs */}
-                <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-gray-200">
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900">Prefer email?</h4>
-                  <p className="text-gray-600 text-sm mb-4">
-                    I typically respond within 24–48 hours.
+                {/* Quick CTA - Highlight Cost Optimization */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 via-indigo-50 to-blue-50 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-blue-900/30 rounded-xl border border-purple-200 dark:border-purple-700">
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">💡 Featured Achievement</h4>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                    Reduced OSWorld++ evaluation costs by <strong className="dark:text-white">67%</strong> through intelligent Pioneer/Follower caching architecture — saving <strong className="dark:text-white">$16,757</strong> per full run while maintaining 100% success rate.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`mailto:${profile.email}`}
-                      className="btn-secondary inline-flex items-center gap-2"
+                      href={`mailto:${profile.email}?subject=Let's discuss your cost optimization work`}
+                      className="btn-primary inline-flex items-center gap-2"
                     >
                       <Mail className="w-4 h-4" />
                       Email Me
                     </a>
-                    <a
-                      href={`tel:${profile.phone.replace(/[^+\\d]/g, '')}`}
-                      className="btn-secondary inline-flex items-center gap-2"
-                    >
-                      <Phone className="w-4 h-4" />
-                      Call
-                    </a>
+                    {profile.socials.linkedin && (
+                      <a
+                        href={profile.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary inline-flex items-center gap-2"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                        LinkedIn
+                      </a>
+                    )}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Contact Form (static, no backend) */}
-            <motion.div variants={itemVariants}>
-              <div className="card">
-                <h3 className="text-2xl font-bold mb-6 text-gradient">Send a Message</h3>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400"
-                        placeholder="Your full name"
-                        autoComplete="name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400"
-                        placeholder="your.email@example.com"
-                        autoComplete="email"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400 resize-none"
-                      placeholder="Tell me about your project, opportunity, or just say hello..."
-                    />
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5" />
-                        Send Message
-                      </>
-                    )}
-                  </motion.button>
-                </form>
               </div>
             </motion.div>
           </div>
@@ -282,3 +158,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+

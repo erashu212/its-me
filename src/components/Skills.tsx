@@ -89,7 +89,7 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-gray-50">
+    <section id="skills" className="section-padding bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -99,10 +99,10 @@ const Skills: React.FC = () => {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               <span className="text-gradient">Skills & Expertise</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Comprehensive technical skills across the full software development lifecycle
             </p>
           </motion.div>
@@ -121,7 +121,7 @@ const Skills: React.FC = () => {
                     className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                       active
                         ? 'bg-primary-600 text-white shadow-lg'
-                        : 'bg-white text-gray-700 hover:bg-primary-50 hover:text-primary-600 border border-gray-200 shadow-soft'
+                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 border border-gray-200 dark:border-gray-700 shadow-soft'
                     }`}
                     aria-pressed={active}
                   >
@@ -145,10 +145,10 @@ const Skills: React.FC = () => {
               {skillCategories[activeCategory].skills.map((skill, index) => (
                 <motion.div key={skill.name} variants={itemVariants} className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
-                    <span className="text-primary-600 font-semibold">{skill.level}%</span>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
+                    <span className="text-primary-600 dark:text-primary-400 font-semibold">{skill.level}%</span>
                   </div>
-                  <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="relative h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <motion.div
                       className={`absolute top-0 left-0 h-full bg-gradient-to-r ${skill.color} rounded-full`}
                       initial={{ width: 0 }}
@@ -168,14 +168,14 @@ const Skills: React.FC = () => {
             <div className="flex justify-center">
               <div className="card">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-amber-50 rounded-xl border border-amber-100">
-                    <Award className="w-7 h-7 text-amber-600" />
+                  <div className="p-3 bg-amber-50 dark:bg-amber-900/30 rounded-xl border border-amber-100 dark:border-amber-700">
+                    <Award className="w-7 h-7 text-amber-600 dark:text-amber-400" />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-xl font-semibold text-gray-900">
+                    <h4 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
                       AWS Certified Solutions Architect — Associate
                     </h4>
-                    <p className="text-gray-600">Amazon Web Services</p>
+                    <p className="text-gray-600 dark:text-gray-400">Amazon Web Services</p>
                   </div>
                 </div>
               </div>
@@ -208,7 +208,7 @@ const Skills: React.FC = () => {
               ].map((tech, index) => (
                 <motion.span
                   key={tech}
-                  className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-soft hover:text-primary-600 transition-all duration-200 cursor-default"
+                  className="px-4 py-2 bg-white dark:bg-gray-800 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-soft hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 cursor-default"
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}

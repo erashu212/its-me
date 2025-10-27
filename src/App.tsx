@@ -5,10 +5,12 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
-    <div className="min-h-screen bg-secondary-900">
+    <div className="min-h-screen transition-colors duration-300">
+      <ThemeToggle />
       <Hero />
       <About />
       <Experience />

@@ -59,7 +59,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-gray-50">
+    <section id="about" className="section-padding bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -69,10 +69,10 @@ const About: React.FC = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               <span className="text-gradient">About Me</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Passionate engineering leader driving innovation in AI/ML and cloud technologies
             </p>
           </motion.div>
@@ -91,11 +91,11 @@ const About: React.FC = () => {
                   whileHover={{ scale: 1.04 }}
                   transition={{ type: 'spring', stiffness: 280 }}
                 >
-                  <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary-600 mx-auto mb-2 sm:mb-3" />
-                  <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1">
+                  <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary-600 dark:text-primary-400 mx-auto mb-2 sm:mb-3" />
+                  <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-1">
                     {achievement.number}
                   </div>
-                  <div className="text-gray-600 text-xs sm:text-sm">{achievement.label}</div>
+                  <div className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">{achievement.label}</div>
                 </motion.div>
               );
             })}
@@ -105,15 +105,15 @@ const About: React.FC = () => {
           <motion.div variants={itemVariants} className="mb-16 px-4">
             <div className="card">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gradient">Professional Summary</h3>
-              <div className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed space-y-3 sm:space-y-4">
+              <div className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-3 sm:space-y-4">
                 <p>{profile.summary}</p>
                 <p>
                   Deep expertise in{' '}
-                  <strong className="text-blue-600">Large Language Models (LLM)</strong>,{' '}
+                  <strong className="text-blue-600 dark:text-blue-400">Large Language Models (LLM)</strong>,{' '}
                   Artificial General Intelligence (AGI), and Retrieval-Augmented Generation (RAG)
                   systems. Proven track record in microservices architecture, MLOps, and
-                  cloud‑native delivery on <strong className="text-indigo-600">GCP</strong> and{' '}
-                  <strong className="text-purple-600">AWS</strong>.
+                  cloud‑native delivery on <strong className="text-indigo-600 dark:text-indigo-400">GCP</strong> and{' '}
+                  <strong className="text-purple-600 dark:text-purple-400">AWS</strong>.
                 </p>
                 <p>
                   Strong background in leading cross‑functional teams, implementing CI/CD pipelines,
@@ -139,14 +139,14 @@ const About: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 280 }}
                   >
                     <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 bg-primary-50 rounded-xl border border-primary-100 flex-shrink-0">
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />
+                      <div className="p-2 sm:p-3 bg-primary-50 dark:bg-primary-900/30 rounded-xl border border-primary-100 dark:border-primary-700 flex-shrink-0">
+                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600 dark:text-primary-400" />
                       </div>
                       <div>
-                        <h4 className="text-base sm:text-lg font-semibold mb-2 text-gray-900">
+                        <h4 className="text-base sm:text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                           {highlight.title}
                         </h4>
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{highlight.description}</p>
+                        <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">{highlight.description}</p>
                       </div>
                     </div>
                   </motion.div>

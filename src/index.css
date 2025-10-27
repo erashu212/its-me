@@ -6,13 +6,21 @@
 
 @layer base {
   body {
-    @apply text-gray-900 font-sans;
+    @apply text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
     /* Subtle, modern light background – easy on eyes */
     background:
       radial-gradient(1200px 600px at 10% -10%, #eef2ff 20%, transparent 50%),
       radial-gradient(900px 500px at 90% -10%, #fff7ed 15%, transparent 45%),
       linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+  
+  /* Dark mode background */
+  .dark body {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #1e1b4b 20%, transparent 50%),
+      radial-gradient(900px 500px at 90% -10%, #312e81 15%, transparent 45%),
+      linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   }
   
   html {
@@ -38,7 +46,7 @@
   }
   
   .card {
-    @apply bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8 hover:shadow-xl transition-all duration-300;
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-6 sm:p-8 hover:shadow-xl transition-all duration-300;
   }
   
   .text-gradient {
@@ -46,7 +54,7 @@
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg;
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg;
   }
   
   .hero-gradient {
@@ -116,6 +124,15 @@
   }
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -124,12 +141,26 @@
   animation: pulse-soft 4s ease-in-out infinite;
 }
 
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
 /* Line clamp utilities */
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* Subtle glow effects */
@@ -147,4 +178,30 @@
 
 .glow-emerald {
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+}
+
+/* Enhanced hover glow effects for metrics */
+.metric-card-emerald:hover {
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+}
+
+.metric-card-sky:hover {
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+  transform: translateY(-2px);
+}
+
+.metric-card-teal:hover {
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.4);
+  transform: translateY(-2px);
+}
+
+.metric-card-violet:hover {
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.metric-card-primary:hover {
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
 }

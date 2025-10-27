@@ -38,6 +38,7 @@ export interface Profile {
   location: string;
   phone: string;
   email: string;
+  image: string | null;
   resumeUrl: string | null;
   socials: {
     github: string | null;
@@ -54,10 +55,11 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Ashutosh Singh',
-  titles: ['Senior Engineering Manager', 'Delivery Engineering Manager'],
+  titles: ['Senior Engineering Manager', 'Delivery'],
   location: 'Pune, India',
   phone: '+91-9503999217',
   email: 'ashu.singh212@gmail.com',
+  image: 'https://media.licdn.com/dms/image/v2/D4D03AQHmXaLh_gO1Zg/profile-displayphoto-scale_200_200/B4DZoACqz.IgAY-/0/1760937292687?e=1762992000&v=beta&t=IJZwQweSPvdxtHxFcuTV5BVH3dfJA7ym0lOTqJxCTEg',
   // Replace this with your actual hosted resume PDF URL (e.g., Google Drive, Dropbox, or GitHub)
   resumeUrl: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID',
   socials: {
@@ -77,6 +79,112 @@ export const profile: Profile = {
 export const projects: Project[] = [
   {
     id: 0,
+    title: 'OSWorld++ – Distributed AI Workspace with Multi-VM Automation',
+    company: 'Turing',
+    period: '2025',
+    role: 'Engineering Manager & Platform Architect',
+    description:
+      'Engineered and extended OSWorld into a multi-VM, cloud-automated orchestration platform for autonomous agents across isolated virtual machines, enabling parallel AI task execution, context sharing, and self-healing automation pipelines.',
+    longDescription:
+      'OSWorld++ transforms the open-source AI workspace framework into a distributed, multi-agent operating fabric. The system deploys and manages autonomous agents across isolated compute nodes with automated provisioning, gRPC + Pub/Sub communication, and Redis-based coordination. Supports large-scale experiments, multi-agent workflows, and code-driven environment provisioning with comprehensive telemetry and observability through Prometheus/Grafana.',
+    technologies: [
+      'Python',
+      'FastAPI',
+      'TypeScript',
+      'React',
+      'Node.js',
+      'Redis Streams',
+      'Pub/Sub',
+      'Cloud Run',
+      'Compute Engine',
+      'Firestore',
+      'PostgreSQL',
+      'Prometheus',
+      'Grafana',
+      'Docker',
+      'gRPC',
+    ],
+    achievements: [
+      'Built multi-VM orchestration layer with automated provisioning via declarative manifests and cloud APIs',
+      'Designed distributed agent mesh with gRPC + Pub/Sub communication synchronized by Redis coordination service',
+      'Implemented Pioneer/Follower caching architecture reducing LLM costs by 67% ($25K → $8.4K per evaluation)',
+      'Achieved 87x cost variation between VMs through intelligent cache sharing (pioneers $2.60, followers $0.03)',
+      'Built Redis-based single-flight locking preventing duplicate LLM calls across 200+ concurrent VMs',
+      'Implemented context-aware task routing using metadata and semantic embeddings for specialized agent VMs',
+      'Created parallel execution framework for concurrent multi-agent workflows with fault isolation',
+      'Integrated Prometheus/Grafana telemetry capturing real-time health metrics and agent performance dashboards',
+      'Scaled to 200+ concurrent VM-based agent sessions with <250ms inter-agent latency',
+      'Reduced deployment time per environment from 3min → 45s via cached base images and parallel provisioning',
+      'Implemented auto-recovery routines with 3-tier retry strategy achieving 99.9% uptime and 100% task success',
+      'Optimized token consumption with trajectory limiting (max 3 steps context) reducing cost per call by 40%',
+      'Deployed secure automation sandbox with VM isolation, firewalled subnets, and SSH-free deployment',
+      'Extended modular plugin system to support remote execution endpoints and dynamic scaling adapters',
+      'Enforced RBAC, API-key isolation, TLS 1.3 + mutual auth, with secrets in Vault/Cloud Secret Manager',
+    ],
+    impact: {
+      concurrency: '200+ VM Sessions',
+      latency: '<250ms',
+      deployment: '3min → 45s',
+      uptime: '99.9%',
+      costSavings: '67% Cost Reduction',
+    },
+    links: [],
+    category: 'AI/AGI Platform',
+    status: 'Production',
+  },
+  {
+    id: 1,
+    title: 'CARE Platform – Cloud-Native RL Environment for Code Agents',
+    company: 'Turing',
+    period: '2025',
+    role: 'Engineering Manager & Platform Architect',
+    description:
+      'Architected and led CARE, a Google Cloud–native, microservices platform for training and evaluating autonomous Code Agents through reinforcement learning, scaling to 1000+ concurrent RL episodes with deterministic reward feedback.',
+    longDescription:
+      'CARE (Cloud-native Agent Reinforcement Environment) is a production-grade platform that executes and verifies code edits in real repositories under realistic sandboxed conditions. The system features multi-tenant architecture with 3-level configuration hierarchy, Cloud-Run microservices communicating via REST + Pub/Sub, and sandboxed execution using Cloud Build and Cloud Run Jobs for secure, reproducible task runs.',
+    technologies: [
+      'Python',
+      'FastAPI',
+      'React',
+      'TanStack Router',
+      'Cloud Run',
+      'Cloud Build',
+      'Workflows',
+      'Pub/Sub',
+      'Firestore',
+      'Cloud SQL (PostgreSQL)',
+      'Redis (Memorystore)',
+      'BigQuery',
+      'GCS',
+      'Firebase Auth',
+      'Cloud IAM',
+      'Cloud Armor',
+    ],
+    achievements: [
+      'Designed multi-tenant architecture with 3-level config hierarchy (Team → Project → Task)',
+      'Built Cloud-Run microservices with REST + Pub/Sub communication, each owning its own datastore',
+      'Implemented sandboxed execution using Cloud Build and Cloud Run Jobs for secure task runs',
+      'Created Factory & Strategy patterns for plug-and-play integration of agents (LLM, RL, heuristic)',
+      'Reduced average episode runtime from 60s → <15s through dependency caching and parallel builds',
+      'Achieved >80% cache hit rate and sustained 1000+ concurrent executions with horizontal scaling',
+      'Built dual logging pipelines: realtime (<200ms) → Firestore and analytical (batch) → BigQuery',
+      'Implemented automated verifiers and custom reward functions for deterministic feedback',
+      'Designed scalable orchestration with Cloud Workflows and Redis-based semaphores for quota control',
+      'Established full observability with Cloud Logging, Trace, and Monitoring',
+      'Implemented RBAC via Firebase Auth + Cloud IAM with network protection using Cloud Armor and TLS 1.3',
+    ],
+    impact: {
+      runtime: '60s → 15s',
+      cacheHit: '>80%',
+      concurrency: '1000+ Episodes',
+      latency: '<200ms',
+    },
+    links: [],
+    category: 'AI/AGI Platform',
+    status: 'Production',
+  },
+  {
+    id: 2,
     title: 'Atlas Auto-Rater - AI Evaluation Platform',
     company: 'Turing',
     period: '2025 - Present',
@@ -116,7 +224,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 1,
+    id: 3,
     title: 'Atlas Platform - Reasoning & Benchmarking System',
     company: 'Turing',
     period: '2025 - Present',
@@ -158,7 +266,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 2,
+    id: 4,
     title: 'Rag Seed Project - Algorithmic Reasoning Platform',
     company: 'Turing',
     period: '2025',
@@ -198,7 +306,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 3,
+    id: 5,
     title: 'Atlas-Workflow - LLM Pipeline Orchestration',
     company: 'Turing',
     period: '2025 - Ongoing',
@@ -238,7 +346,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 4,
+    id: 6,
     title: 'ICE Mortgage Technology - Encompass Platform',
     company: 'ICE Mortgage Technology',
     period: '2020 - 2025',
@@ -282,7 +390,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 5,
+    id: 7,
     title: 'AI/ML Analytics & LLM Tools',
     company: 'ICE Mortgage Technology',
     period: '2024 - 2025',
@@ -319,7 +427,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 6,
+    id: 8,
     title: 'AWS Data Pipeline Architecture',
     company: 'Xoriant Solutions',
     period: '2017 - 2020',
@@ -357,7 +465,7 @@ export const projects: Project[] = [
     status: 'Completed',
   },
   {
-    id: 7,
+    id: 9,
     title: 'Enterprise Software Solutions',
     company: 'Multiple Companies',
     period: '2012 - 2017',
