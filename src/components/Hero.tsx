@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail, MapPin, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { profile } from '../data/profile';
+import VideoProfile from './VideoProfile';
 
 const Hero: React.FC = () => {
   const { name, titles, location, phone, email, resumeUrl, socials, summary, image } = profile;
@@ -44,27 +45,9 @@ const Hero: React.FC = () => {
           animate="visible"
           className="text-center"
         >
-          {/* Profile Image */}
+          {/* Video Profile */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-2xl glow-blue relative animate-float p-1">
-              <div className="absolute inset-1 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
-                {image ? (
-                  <img 
-                    src={image} 
-                    alt={name}
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                ) : (
-                  <span className="text-3xl sm:text-4xl font-bold text-gradient">
-                    {name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .slice(0, 2)
-                      .join('')}
-                  </span>
-                )}
-              </div>
-            </div>
+            <VideoProfile />
           </motion.div>
 
           {/* Name and Title */}
@@ -106,11 +89,11 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Professional Summary & Quick Stats - Two Column on Large Screens */}
+          {/* Featured Achievement & Professional Summary - Three Column on Large Screens */}
           <motion.div variants={itemVariants} className="mb-10 px-4">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-6">
               {/* Summary */}
-              <div className="card glow-blue">
+              <div className="card glow-blue lg:col-span-2">
                 <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   {summary}
                 </p>
@@ -151,18 +134,47 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
+          {/* Featured Achievement */}
+          <motion.div variants={itemVariants} className="mb-10 px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="card bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border-yellow-200 dark:border-yellow-700/30 glow-yellow">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  {/* Trophy Icon */}
+                  <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-sm sm:text-base font-bold">🏆</span>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      Featured Achievement
+                    </h3>
+
+                    {/* Achievement Description */}
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Reduced OSWorld++ evaluation costs by{' '}
+                      <span className="font-bold text-green-600 dark:text-green-400">67%</span>{' '}
+                      through intelligent Pioneer/Follower caching architecture — saving{' '}
+                      <span className="font-bold text-blue-600 dark:text-blue-400">$16,757</span>{' '}
+                      per full run while maintaining{' '}
+                      <span className="font-bold text-purple-600 dark:text-purple-400">100% success rate</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="mb-12 px-4">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href={`mailto:${email}`}
-                className="btn-primary inline-flex items-center justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <a
+                href={`mailto:${email}?subject=Hello%20from%20Portfolio%20Visitor&body=Hi%20Ashutosh,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect.%0A%0ABest%20regards`}
+                className="btn-primary inline-flex items-center justify-center hover:scale-105 active:scale-95 transition-transform"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email Me
-              </motion.a>
+              </a>
               {resumeUrl && resumeUrl !== 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' && (
                 <motion.a
                   href={resumeUrl}
