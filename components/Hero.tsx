@@ -1,11 +1,12 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Download, Mail, MapPin, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { profile } from '../data/profile';
+import { profile } from '@/data/profile';
 import VideoProfile from './VideoProfile';
 
-const Hero: React.FC = () => {
-  const { name, titles, location, phone, email, resumeUrl, socials, summary, image } = profile;
+const Hero = () => {
+  const { name, titles, location, phone, email, resumeUrl, socials, summary } = profile;
 
   const containerVariants = {
     hidden: { opacity: 0 },

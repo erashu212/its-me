@@ -1,9 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, TrendingUp, Zap, Database, Cloud, Brain, Code, CheckCircle, Settings, Check } from 'lucide-react';
-import { projects as projectsData, profile } from '../data/profile';
+import { projects as projectsData } from '@/data/profile';
 
-const Projects: React.FC = () => {
+const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
   const projects = projectsData;
 
@@ -93,18 +95,8 @@ const Projects: React.FC = () => {
   };
 
   // Summary metrics sourced from real data (no placeholders)
-  // Compute strictly from existing data to avoid any guesswork
-  const companies = Array.from(new Set(projects.map((p) => p.company)));
-  const productionCount = projects.filter((p) => p.status === 'Production').length;
-
-  const summaryTiles = [
-    { label: 'Major Projects', value: String(projects.length) },
-    { label: 'Organizations', value: String(companies.length) },
-    { label: 'Production Projects', value: String(productionCount) },
-    ...(profile.metrics?.yearsExperience != null
-      ? [{ label: 'Years Experience', value: String(profile.metrics.yearsExperience) }]
-      : [])
-  ] as { label: string; value: string }[];
+  // const companies = Array.from(new Set(projects.map((p) => p.company)));
+  // const productionCount = projects.filter((p) => p.status === 'Production').length;
 
   return (
     <section id="projects" className="section-padding bg-white dark:bg-gray-800">
@@ -230,35 +222,27 @@ const Projects: React.FC = () => {
                   <h4 className="text-base sm:text-lg font-semibold mb-3 text-gray-900 dark:text-white">Technologies Used</h4>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {projects[activeProject].technologies.map((tech, index) => {
-                      // Categorize technologies for visual grouping
                       const techLower = tech.toLowerCase();
                       let techColor = 'bg-primary-50 text-primary-700 border-primary-200';
                       
-                      // Frontend
                       if (techLower.includes('react') || techLower.includes('material ui') || techLower.includes('typescript') || techLower.includes('javascript') || techLower.includes('tanstack')) {
                         techColor = 'bg-blue-50 text-blue-700 border-blue-200';
                       }
-                      // Backend/API
                       else if (techLower.includes('fastapi') || techLower.includes('python') || techLower.includes('node') || techLower.includes('api')) {
                         techColor = 'bg-emerald-50 text-emerald-700 border-emerald-200';
                       }
-                      // Cloud/Infrastructure
                       else if (techLower.includes('cloud') || techLower.includes('gcp') || techLower.includes('aws') || techLower.includes('run') || techLower.includes('build') || techLower.includes('workflow') || techLower.includes('kubernetes') || techLower.includes('docker') || techLower.includes('terraform')) {
                         techColor = 'bg-sky-50 text-sky-700 border-sky-200';
                       }
-                      // Database/Storage
                       else if (techLower.includes('sql') || techLower.includes('firestore') || techLower.includes('redis') || techLower.includes('bigquery') || techLower.includes('gcs') || techLower.includes('database') || techLower.includes('s3') || techLower.includes('redshift')) {
                         techColor = 'bg-violet-50 text-violet-700 border-violet-200';
                       }
-                      // Messaging/Events
                       else if (techLower.includes('pub/sub') || techLower.includes('kafka') || techLower.includes('kinesis')) {
                         techColor = 'bg-amber-50 text-amber-700 border-amber-200';
                       }
-                      // Security/Auth
                       else if (techLower.includes('auth') || techLower.includes('iam') || techLower.includes('armor') || techLower.includes('security')) {
                         techColor = 'bg-rose-50 text-rose-700 border-rose-200';
                       }
-                      // AI/ML
                       else if (techLower.includes('llm') || techLower.includes('ai') || techLower.includes('ml') || techLower.includes('agi') || techLower.includes('vector')) {
                         techColor = 'bg-purple-50 text-purple-700 border-purple-200';
                       }

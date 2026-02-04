@@ -1,9 +1,10 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Award, Users, Code, Zap, Target, TrendingUp } from 'lucide-react';
-import { profile } from '../data/profile';
+import { profile } from '@/data/profile';
 
-const About: React.FC = () => {
+const About = () => {
   const achievements = [
     { number: '13+', label: 'Years Experience', icon: Award },
     { number: '30+', label: 'Projects Delivered', icon: Target },

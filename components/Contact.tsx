@@ -1,9 +1,10 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from 'lucide-react';
-import { profile } from '../data/profile';
+import { profile } from '@/data/profile';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
@@ -35,7 +36,7 @@ const Contact: React.FC = () => {
     profile.socials.stackoverflow
       ? { icon: ExternalLink, label: 'Stack Overflow', href: profile.socials.stackoverflow, color: 'hover:text-orange-600' }
       : null,
-  ].filter(Boolean) as { icon: any; label: string; href: string; color: string }[];
+  ].filter(Boolean) as { icon: typeof Mail; label: string; href: string; color: string }[];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,7 +66,7 @@ const Contact: React.FC = () => {
               <span className="text-gradient">Get In Touch</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Ready to discuss your next project or explore opportunities? Let's connect.
+              Ready to discuss your next project or explore opportunities? Let&apos;s connect.
             </p>
           </motion.div>
 
@@ -80,7 +81,7 @@ const Contact: React.FC = () => {
                     return (
                       <Wrapper
                         key={index}
-                        href={info.href as any}
+                        href={info.href as string | undefined}
                         className={`text-center p-6 rounded-xl transition-all duration-300 ${
                           info.href ? 'hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg' : ''
                         }`}
@@ -123,7 +124,7 @@ const Contact: React.FC = () => {
 
                 {/* Quick CTA - Highlight Cost Optimization */}
                 <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 via-indigo-50 to-blue-50 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-blue-900/30 rounded-xl border border-purple-200 dark:border-purple-700">
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">💡 Featured Achievement</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Featured Achievement</h4>
                   <p className="text-gray-700 dark:text-gray-300 text-sm mb-3 leading-relaxed">
                     Reduced OSWorld++ evaluation costs by <strong className="dark:text-white">67%</strong> through intelligent Pioneer/Follower caching architecture — saving <strong className="dark:text-white">$16,757</strong> per full run while maintaining 100% success rate.
                   </p>
@@ -158,4 +159,3 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-

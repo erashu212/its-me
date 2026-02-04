@@ -1,78 +1,26 @@
-import React, { useState, useRef } from 'react';
+'use client';
+
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause } from 'lucide-react';
-import { profile } from '../data/profile';
+import { Play } from 'lucide-react';
+import Image from 'next/image';
+import { profile } from '@/data/profile';
 
 interface VideoProfileProps {
   videoUrl?: string;
   className?: string;
 }
 
-const VideoProfile: React.FC<VideoProfileProps> = ({ 
+const VideoProfile = ({ 
   videoUrl = 'https://www.loom.com/embed/0a1808173b4549979815aa54406695d5?sid=f0a5b9a2-cf91-4eaa-ab95-e1ce8c24d35d',
   className = ''
-}) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+}: VideoProfileProps) => {
   const [showVideo, setShowVideo] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handlePlayClick = () => {
     setShowVideo(true);
-    setIsPlaying(true);
   };
-
-  const ProfileImage = () => (
-    <div className="absolute inset-1 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
-      {profile.image ? (
-        <img 
-          src={profile.image} 
-          alt={profile.name}
-          className="w-full h-full object-cover rounded-full"
-        />
-      ) : (
-        <span className="text-3xl sm:text-4xl font-bold text-gradient">
-          {profile.name
-            .split(' ')
-            .map((n) => n[0])
-            .slice(0, 2)
-            .join('')}
-        </span>
-      )}
-    </div>
-  );
-
-  const PlayButton = () => (
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-full cursor-pointer backdrop-blur-sm"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={handlePlayClick}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
-    >
-      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center shadow-xl">
-        <Play className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 ml-1" />
-      </div>
-    </motion.div>
-  );
-
-  const VideoPlayer = () => (
-    <div className="absolute inset-1 rounded-full overflow-hidden bg-black">
-      <iframe
-        ref={iframeRef}
-        src={`${videoUrl}&autoplay=1&hideEmbedTopBar=true`}
-        frameBorder="0"
-        allowFullScreen
-        className="w-full h-full rounded-full"
-        style={{
-          transform: 'scale(1.4)',
-          transformOrigin: 'center center'
-        }}
-        title="Professional Introduction Video"
-      />
-    </div>
-  );
 
   return (
     <div className={`relative ${className}`}>
@@ -85,12 +33,15 @@ const VideoProfile: React.FC<VideoProfileProps> = ({
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-100 to-purple-50 dark:from-gray-800 dark:to-purple-900">
                   <div className="text-center">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 rounded-full p-1">
-                      <div className="w-full h-full bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+                      <div className="w-full h-full bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden relative">
                         {profile.image ? (
-                          <img 
+                          <Image 
                             src={profile.image} 
                             alt={profile.name}
-                            className="w-full h-full object-cover rounded-full"
+                            fill
+                            className="object-cover rounded-full"
+                            sizes="96px"
+                            priority
                           />
                         ) : (
                           <span className="text-xl font-bold text-gradient">

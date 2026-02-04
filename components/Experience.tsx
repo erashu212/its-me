@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Building, ChevronRight } from 'lucide-react';
 
@@ -130,7 +131,7 @@ const typeStyles = (type: ExperienceItem['type']) => {
   }
 };
 
-const Experience: React.FC = () => {
+const Experience = () => {
   return (
     <section id="experience" className="section-padding bg-white dark:bg-gray-800">
       <div className="container-custom">

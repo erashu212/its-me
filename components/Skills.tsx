@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Cloud, Database, Settings, Users, Brain, Zap, Award } from 'lucide-react';
+import { Code, Cloud, Database, Settings, Users, Brain, Award } from 'lucide-react';
 
 type Skill = { name: string; level: number; color: string };
 type CategoryKey = 'programming' | 'cloud' | 'backend' | 'data' | 'ai' | 'leadership';
 
-const Skills: React.FC = () => {
+const Skills = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>('programming');
 
-  const skillCategories: Record<CategoryKey, { title: string; icon: any; skills: Skill[] }> = {
+  const skillCategories: Record<CategoryKey, { title: string; icon: typeof Code; skills: Skill[] }> = {
     programming: {
       title: 'Programming',
       icon: Code,
@@ -142,7 +144,7 @@ const Skills: React.FC = () => {
             className="card"
           >
             <div className="grid md:grid-cols-2 gap-8">
-              {skillCategories[activeCategory].skills.map((skill, index) => (
+              {skillCategories[activeCategory].skills.map((skill) => (
                 <motion.div key={skill.name} variants={itemVariants} className="space-y-3">
                   <div className="flex justify-between items-center">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h3>

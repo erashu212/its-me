@@ -1,16 +1,35 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Sun, Moon, Monitor } from 'lucide-react';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme';
 
-const ThemeToggle: React.FC = () => {
-  const { themeMode, setTheme } = useTheme();
+const ThemeToggle = () => {
+  const { themeMode, setTheme, mounted } = useTheme();
 
   const themes = [
     { mode: 'light' as const, icon: Sun, label: 'Light' },
     { mode: 'dark' as const, icon: Moon, label: 'Dark' },
     { mode: 'auto' as const, icon: Monitor, label: 'Auto' },
   ];
+
+  // Avoid hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="fixed top-6 right-6 z-50">
+        <div className="flex gap-2 p-2 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          {themes.map(({ mode, icon: Icon }) => (
+            <div
+              key={mode}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400"
+            >
+              <Icon className="w-5 h-5" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed top-6 right-6 z-50">
@@ -38,4 +57,3 @@ const ThemeToggle: React.FC = () => {
 };
 
 export default ThemeToggle;
-
