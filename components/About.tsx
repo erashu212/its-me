@@ -1,41 +1,41 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, Users, Code, Zap, Target, TrendingUp } from 'lucide-react';
+import { Award, Users, Code, Zap, Target } from 'lucide-react';
 import { profile } from '@/data/profile';
 
 const About = () => {
   const achievements = [
-    { number: '13+', label: 'Years Experience', icon: Award },
-    { number: '30+', label: 'Projects Delivered', icon: Target },
-    { number: '12+', label: 'Team Members Led', icon: Users },
-    { number: '85%', label: 'Deployment Efficiency', icon: TrendingUp },
+    { number: '2', label: 'Products Shipped', icon: Zap },
+    { number: '44', label: 'NPM Releases', icon: Code },
+    { number: '19', label: 'Quality Gates Built', icon: Target },
+    { number: '13+', label: 'Years Engineering', icon: Award },
   ];
 
   const highlights = [
     {
-      icon: Code,
-      title: 'AI/ML Expertise',
+      icon: Zap,
+      title: 'Founder & Builder',
       description:
-        'Deep expertise in Large Language Models (LLM), Artificial General Intelligence (AGI), and Retrieval-Augmented Generation (RAG) systems.',
+        'Built two products from zero to production: Rigour (open-source quality gates for AI code, 44 releases on NPM) and Rigovo (AI-powered technical hiring with voice interviews and 15-signal verification).',
     },
     {
-      icon: Zap,
-      title: 'Cloud Architecture',
+      icon: Code,
+      title: 'Developer Tooling & AI Agents',
       description:
-        'Proven track record with microservices, MLOps, and cloud-native delivery on GCP and AWS platforms.',
+        'Deep expertise in AST analysis, MCP protocol integration, Fix Packet schemas, multi-agent governance, and building tools that enforce engineering standards deterministically.',
     },
     {
       icon: Users,
-      title: 'Team Leadership',
+      title: 'Engineering Leadership',
       description:
-        'Successfully led cross-functional teams, mentored engineers, and delivered complex projects with improved performance and scalability.',
+        'Led cross-functional teams at Turing and ICE Mortgage Technology. Mentored 12+ engineers, delivered 30+ projects, and drove cloud migrations improving scalability by 48%.',
     },
     {
       icon: Target,
-      title: 'Results Driven',
+      title: 'Full-Stack Production Systems',
       description:
-        'Consistently delivered quantifiable results: 85% faster deployments, 65% improved throughput, and 40% better system efficiency.',
+        'TypeScript, Python, Node.js, React, GCP, AWS. Comfortable across the entire stack from AST parsers to CI/CD pipelines to voice AI systems.',
     },
   ];
 
@@ -74,7 +74,7 @@ const About = () => {
               <span className="text-gradient">About Me</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Passionate engineering leader driving innovation in AI/ML and cloud technologies
+              Technical founder who builds production systems from scratch &mdash; then ships them
             </p>
           </motion.div>
 
@@ -109,18 +109,18 @@ const About = () => {
               <div className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-3 sm:space-y-4">
                 <p>{profile.summary}</p>
                 <p>
-                  Deep expertise in{' '}
-                  <strong className="text-blue-600 dark:text-blue-400">Large Language Models (LLM)</strong>,{' '}
-                  Artificial General Intelligence (AGI), and Retrieval-Augmented Generation (RAG)
-                  systems. Proven track record in microservices architecture, MLOps, and
-                  cloud‑native delivery on <strong className="text-indigo-600 dark:text-indigo-400">GCP</strong> and{' '}
-                  <strong className="text-purple-600 dark:text-purple-400">AWS</strong>.
+                  Most recently built{' '}
+                  <strong className="text-blue-600 dark:text-blue-400">Rigour</strong> &mdash; an open-source quality gate system
+                  with 19 deterministic gates, AST-based complexity analysis, security vulnerability detection,
+                  and an MCP server for{' '}
+                  <strong className="text-indigo-600 dark:text-indigo-400">Claude Desktop, Cursor, and VS Code</strong>.
+                  Also created <strong className="text-purple-600 dark:text-purple-400">Rigovo</strong>, an AI interviewer
+                  with voice interaction and real-time 15-signal verification.
                 </p>
                 <p>
-                  Strong background in leading cross‑functional teams, implementing CI/CD pipelines,
-                  and delivering measurable improvements in performance, scalability, and cost
-                  optimization. Passionate about mentoring engineers and driving technical
-                  excellence.
+                  Before founding, led engineering at Turing (AI/AGI platforms, distributed agent systems)
+                  and ICE Mortgage Technology (cloud migration, CI/CD, analytics). 13+ years across
+                  TypeScript, Python, GCP, AWS, and distributed systems.
                 </p>
               </div>
             </div>

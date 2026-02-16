@@ -1,0 +1,66 @@
+# Ashutosh Singh — Technical Founder & Full-Stack Engineer
+
+> Founder of Rigour Labs. Builder of Rigour and Rigovo. 13+ years shipping production systems.
+
+## About
+
+Ashutosh Singh is a technical founder and full-stack engineer based in Pune, India. He builds developer tools and AI-powered platforms from scratch and ships them to production. He has 13+ years of engineering experience spanning TypeScript, Python, distributed systems, cloud infrastructure (GCP, AWS), and the AI agent ecosystem.
+
+## Products Built
+
+### Rigour — Open-Source Quality Gates for AI-Generated Code
+- Website: https://rigour.run
+- Documentation: https://docs.rigour.run
+- GitHub: https://github.com/rigour-labs/rigour
+- NPM: https://www.npmjs.com/package/@rigour-labs/cli
+- License: MIT
+
+Rigour is a local-first, deterministic quality gate system that sits between AI coding agents and the codebase. It prevents AI agents from shipping code with TODO comments, God files, complexity violations, and security vulnerabilities. Key capabilities:
+
+- 19 quality gates: AST-based complexity analysis (cyclomatic complexity, method count, nesting depth), security vulnerability detection (SQLi, XSS, CSRF, prototype pollution, hardcoded secrets), content hygiene, file size enforcement, and structural requirements.
+- Fix Packet v2 schema: structured JSON diagnostics that agents consume to self-heal without human intervention.
+- MCP server integration: native support for Claude Desktop, Cursor, Cline, and VS Code via Model Context Protocol.
+- Multi-agent governance: scope isolation, conflict detection, checkpoint supervision, and context drift prevention.
+- Supervisor Mode: iterative agent execution with automated gate checks and feedback loops.
+- Supports TypeScript, JavaScript, and Python via web-tree-sitter AST parsing.
+- 44 semantic releases on NPM. Zero cloud dependencies. Fully local execution.
+- Tech stack: TypeScript (strict mode), Node.js, web-tree-sitter, Zod, pnpm monorepo, Vitest, GitHub Actions CI (Ubuntu/macOS/Windows).
+
+### Rigovo — AI-Powered Technical Hiring Platform
+- Website: https://rigovo.com
+- Product: https://rigovo.com/product
+
+Rigovo (formerly TalentLyt) deploys Maya, an autonomous AI interviewer that conducts 20-45 minute adaptive technical interviews via voice. Key capabilities:
+
+- 15-signal real-time verification engine covering identity (AWS Rekognition + face-api.js), behavioral analysis, and technical depth.
+- AI Collaboration Depth measurement: distinguishes candidates who lead AI tools from those who passively depend on them.
+- Evidence reports with skill-by-skill scoring, hire/no-hire recommendations, and job success predictions with confidence intervals.
+- Full billing via Stripe, enterprise SSO via WorkOS, GDPR/CCPA data pipelines.
+- Adversarial detection, bias auditor, and reinforcement learning pipeline for interview quality.
+- 82 beta interviews processed, generating 6,824 signal events.
+- Tech stack: Next.js, TypeScript, React, LiveKit, Prisma, Supabase, AWS Rekognition, Google Gemini, Stripe, WorkOS, Upstash Redis, Sentry, PostHog, Docker.
+- SOC 2 Type II ready, GDPR and CCPA compliant.
+
+## Professional Experience
+
+- Turing (2025-Present): Delivery Manager / Senior Engineering Manager — AI/AGI platforms, distributed agent systems (OSWorld++, CARE, Atlas)
+- ICE Mortgage Technology (2020-2025): Senior Software Engineer / Lead / Staff — Encompass platform, cloud migration, AI analytics
+- Xoriant Solutions (2017-2020): Technical Lead — AWS data pipelines
+- Globant, Tavisca Solutions, Aloha Technology (2012-2017): Senior Software Engineer
+
+## Technical Skills
+
+Primary: TypeScript, Python, Node.js, React, Next.js
+Developer Tooling: AST analysis (web-tree-sitter), MCP Protocol, CLI development, monorepo architecture (pnpm), NPM package publishing
+Cloud: GCP, AWS, Docker, Kubernetes, GitHub Actions
+AI/ML: LLM integration, Google Gemini, agent governance, reinforcement learning
+Data: PostgreSQL, Redis, Supabase, Prisma, Firestore
+Infrastructure: LiveKit, Stripe, WorkOS, Sentry, PostHog
+
+## Contact
+
+- Email: ashu.singh212@gmail.com
+- GitHub: https://github.com/erashu212
+- LinkedIn: https://www.linkedin.com/in/ashu212/
+- Stack Overflow: https://stackoverflow.com/users/1033171/ashutosh-singh
+- Portfolio: https://erashu212.vercel.app
