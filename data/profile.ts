@@ -56,7 +56,10 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Ashutosh Singh',
-  titles: ['Engineer. Founder. Builder.', 'I ship products from zero to production.'],
+  titles: [
+    'Staff Backend & Platform Engineer',
+    'Python, distributed systems, cloud platforms, and production engineering.',
+  ],
   location: 'Pune, India',
   phone: '+91-9503999217',
   email: 'ashu.singh212@gmail.com',
@@ -69,7 +72,7 @@ export const profile: Profile = {
     stackoverflow: 'https://stackoverflow.com/users/1033171/ashutosh-singh',
   },
   summary:
-    'Technical founder and full-stack engineer with 13+ years of experience. Built and shipped two products from zero: Rigour (open-source quality gates for AI-generated code, 44 releases on NPM) and Rigovo (AI-powered technical hiring platform). Deep expertise in TypeScript, distributed systems, developer tooling, and the AI agent ecosystem.',
+    'Staff-level backend and platform engineer with 13+ years of experience across Python, TypeScript, distributed systems, cloud infrastructure, and production reliability. Built and shipped Rigour and Rigovo from zero, and recently led the CTP platform migration at Turing across GCP projects, Kubernetes, Terraform, Workload Identity Federation, Keycloak/SSO, observability, and event-driven task operations. Hands-on with Python services, PostgreSQL, Redis, Pub/Sub, Cloud SQL, Kubernetes, and a working familiarity with Go for backend systems.',
   metrics: {
     yearsExperience: 13,
     usersImpacted: '100K+',
@@ -180,6 +183,63 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'CTP Platform - GCP Migration, Identity, Canvas & Task Operations',
+    company: 'Turing',
+    period: '2026',
+    role: 'Senior Staff Engineer & Platform Architect',
+    description:
+      'Led the Central Task Platform modernization across new GCP projects, moving infrastructure, identity, deployment, canvas hosting, and observability into a production-grade platform foundation.',
+    longDescription:
+      'CTP is the task-operations platform connecting AGI-OS, Prism, identity, trainer workflows, task queues, media, QC, and canvas experiences. I designed and implemented the migration approach for dev, preprod, and prod GCP projects with Terraform-managed foundation, Workload Identity Federation, state buckets, Secret Manager, GKE, Cloud SQL, Pub/Sub, Firebase, Discovery Engine, Keycloak realm automation, GitHub Actions deployment, and Google Cloud Monitoring dashboards. The migration was staged through parallel infrastructure and branch-based deployment so existing environments could continue running while new projects were validated.',
+    technologies: [
+      'TypeScript',
+      'Python',
+      'Go',
+      'Next.js',
+      'Fastify',
+      'Prisma',
+      'PostgreSQL',
+      'GKE',
+      'Terraform',
+      'Google Cloud',
+      'Workload Identity Federation',
+      'GitHub Actions',
+      'Keycloak',
+      'Cloud SQL',
+      'Secret Manager',
+      'Pub/Sub',
+      'Firebase',
+      'Discovery Engine',
+      'Cloud Monitoring',
+      'Cloud Trace',
+      'Helm',
+      'Kubernetes',
+    ],
+    achievements: [
+      'Designed three-environment GCP foundation for turing-agios-dev, turing-agios-preprod, and turing-agios-prod with Terraform state isolation and mandatory cost/team labeling',
+      'Implemented GitHub Actions Workload Identity Federation for infra, CTP, identity, AGI-OS, Prism, and canvas repositories using least-privilege service accounts',
+      'Built Terraform modules and stacks for CTP foundation: GKE, Cloud SQL, Secret Manager containers, Pub/Sub, Firebase, context datastore, IAM, and monitoring dashboards',
+      'Migrated identity to new Keycloak endpoints with CTP-owned realm automation for Google broker, OIDC clients, roles, scopes, and admin bridge client',
+      'Created branch-based migration flow so identity and CTP could deploy to new infrastructure without interrupting existing environments',
+      'Added production-style observability with Google Cloud Monitoring dashboards for HTTP latency, RPS, 5xx, workloads, media/admin/annotator services, DLQs, event drainer, task usage, and QC/AGI-OS integrations',
+      'Integrated canvas hosting workflow with dedicated WIF and repo prefix strategy for CTP canvas applications',
+      'Drove task-queue hardening: seeded tasks project as available for claim, claimed tasks track ownership, and submitted tasks enter QC lifecycle cleanly',
+      'Worked across Python and TypeScript service boundaries with PostgreSQL, Redis, Pub/Sub, Cloud SQL, and Kubernetes-backed deployments',
+      'Established runbooks and practices for correlation IDs, Cloud Logging, Cloud Trace, GitHub Actions promotion, and cross-team handoff',
+    ],
+    impact: {
+      environments: '3 GCP Projects',
+      teams: 'CTP + Identity + AGI-OS + Prism',
+      auth: 'WIF + Keycloak',
+      downtime: 'Zero-Downtime Plan',
+      visibility: 'SRE Dashboards',
+    },
+    links: [],
+    category: 'Enterprise Platform',
+    status: 'Production',
+  },
+  {
+    id: 3,
     title: 'OSWorld++ \u2013 Distributed AI Workspace with Multi-VM Automation',
     company: 'Turing',
     period: '2025',
@@ -234,7 +294,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 3,
+    id: 4,
     title: 'CARE Platform – Cloud-Native RL Environment for Code Agents',
     company: 'Turing',
     period: '2025',
@@ -285,7 +345,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Atlas Auto-Rater - AI Evaluation Platform',
     company: 'Turing',
     period: '2025 - Present',
@@ -325,7 +385,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Atlas Platform - Reasoning & Benchmarking System',
     company: 'Turing',
     period: '2025 - Present',
@@ -367,7 +427,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Rag Seed Project - Algorithmic Reasoning Platform',
     company: 'Turing',
     period: '2025',
@@ -407,7 +467,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 7,
+    id: 8,
     title: 'Atlas-Workflow - LLM Pipeline Orchestration',
     company: 'Turing',
     period: '2025 - Ongoing',
@@ -447,7 +507,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 8,
+    id: 9,
     title: 'ICE Mortgage Technology - Encompass Platform',
     company: 'ICE Mortgage Technology',
     period: '2020 - 2025',
@@ -491,7 +551,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 9,
+    id: 10,
     title: 'AI/ML Analytics & LLM Tools',
     company: 'ICE Mortgage Technology',
     period: '2024 - 2025',
@@ -528,7 +588,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 10,
+    id: 11,
     title: 'AWS Data Pipeline Architecture',
     company: 'Xoriant Solutions',
     period: '2017 - 2020',
@@ -566,7 +626,7 @@ export const projects: Project[] = [
     status: 'Completed',
   },
   {
-    id: 11,
+    id: 12,
     title: 'Enterprise Software Solutions',
     company: 'Multiple Companies',
     period: '2012 - 2017',
@@ -576,13 +636,15 @@ export const projects: Project[] = [
     longDescription:
       'Built diverse software solutions ranging from e-commerce platforms to travel booking systems, gaining expertise across multiple technologies and business domains at Globant, Tavisca Solutions, and Aloha Technology.',
     technologies: [
-      'Java',
       'C#',
       '.NET',
       'JavaScript',
+      'TypeScript',
+      'React',
+      'Node.js',
+      'PostgreSQL',
       'SQL Server',
-      'Oracle',
-      'Spring',
+      'AWS',
       'Angular',
     ],
     achievements: [

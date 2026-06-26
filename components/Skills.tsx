@@ -8,7 +8,7 @@ type Skill = { name: string; level: number; color: string };
 type CategoryKey = 'devtools' | 'programming' | 'cloud' | 'backend' | 'data' | 'ai' | 'leadership';
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>('devtools');
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('backend');
 
   const skillCategories: Record<CategoryKey, { title: string; icon: typeof Code; skills: Skill[] }> = {
     devtools: {
@@ -30,7 +30,7 @@ const Skills = () => {
         { name: 'Python', level: 95, color: 'from-yellow-400 to-yellow-600' },
         { name: 'JavaScript / TypeScript', level: 90, color: 'from-blue-400 to-blue-600' },
         { name: 'SQL', level: 85, color: 'from-emerald-400 to-emerald-600' },
-        { name: 'Go', level: 75, color: 'from-cyan-400 to-cyan-600' },
+        { name: 'Go (working familiarity)', level: 45, color: 'from-cyan-400 to-cyan-600' },
       ],
     },
     cloud: {
@@ -40,20 +40,25 @@ const Skills = () => {
         { name: 'GCP', level: 90, color: 'from-sky-400 to-sky-600' },
         { name: 'AWS', level: 85, color: 'from-amber-400 to-amber-600' },
         { name: 'Kubernetes', level: 88, color: 'from-indigo-400 to-indigo-600' },
-        { name: 'Terraform', level: 80, color: 'from-purple-400 to-purple-600' },
+        { name: 'Terraform', level: 88, color: 'from-purple-400 to-purple-600' },
+        { name: 'Workload Identity Federation', level: 86, color: 'from-rose-400 to-rose-600' },
+        { name: 'Cloud Monitoring & Trace', level: 85, color: 'from-emerald-400 to-emerald-600' },
         { name: 'Docker', level: 85, color: 'from-cyan-400 to-cyan-600' },
         { name: 'CI/CD', level: 90, color: 'from-emerald-400 to-emerald-600' },
       ],
     },
     backend: {
-      title: 'Backend & Frameworks',
+      title: 'Backend Engineering',
       icon: Settings,
       skills: [
+        { name: 'Python Backend Services', level: 94, color: 'from-yellow-400 to-yellow-600' },
         { name: 'FastAPI', level: 92, color: 'from-teal-400 to-teal-600' },
-        { name: 'Node.js', level: 85, color: 'from-emerald-400 to-emerald-600' },
-        { name: 'REST APIs', level: 90, color: 'from-blue-400 to-blue-600' },
-        { name: 'Microservices', level: 88, color: 'from-purple-400 to-purple-600' },
-        { name: 'Event-Driven Architecture', level: 85, color: 'from-pink-400 to-pink-600' },
+        { name: 'Node.js / Fastify', level: 88, color: 'from-emerald-400 to-emerald-600' },
+        { name: 'REST API Design', level: 91, color: 'from-blue-400 to-blue-600' },
+        { name: 'Microservices & Service Boundaries', level: 90, color: 'from-purple-400 to-purple-600' },
+        { name: 'Event-Driven Architecture', level: 88, color: 'from-pink-400 to-pink-600' },
+        { name: 'Production Debugging & Observability', level: 88, color: 'from-sky-400 to-sky-600' },
+        { name: 'Keycloak / OIDC', level: 86, color: 'from-amber-400 to-amber-600' },
       ],
     },
     data: {
@@ -62,6 +67,9 @@ const Skills = () => {
       skills: [
         { name: 'PostgreSQL', level: 88, color: 'from-blue-400 to-blue-600' },
         { name: 'Redis', level: 85, color: 'from-rose-400 to-rose-600' },
+        { name: 'Cloud SQL', level: 86, color: 'from-cyan-400 to-cyan-600' },
+        { name: 'Prisma', level: 84, color: 'from-indigo-400 to-indigo-600' },
+        { name: 'Pub/Sub', level: 88, color: 'from-amber-400 to-amber-600' },
         { name: 'Firestore', level: 80, color: 'from-amber-400 to-amber-600' },
       ],
     },
@@ -203,18 +211,30 @@ const Skills = () => {
               {[
                 'TypeScript',
                 'Python',
+                'Go',
+                'Backend Engineering',
+                'Distributed Systems',
                 'AST Analysis',
                 'MCP Protocol',
                 'web-tree-sitter',
                 'Zod',
                 'Node.js',
+                'Fastify',
                 'React',
                 'GCP',
+                'Terraform',
+                'Workload Identity Federation',
+                'Keycloak',
+                'Cloud Monitoring',
                 'AWS',
                 'pnpm Monorepo',
                 'GitHub Actions',
                 'Vitest',
                 'FastAPI',
+                'PostgreSQL',
+                'Redis',
+                'Pub/Sub',
+                'Cloud SQL',
                 'Voice AI',
                 'LLM',
                 'Docker',

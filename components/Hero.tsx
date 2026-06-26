@@ -159,19 +159,20 @@ const Hero = () => {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    {/* Title */}
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Built &amp; Shipped from Zero
+                      Built, Migrated &amp; Shipped Production Platforms
                     </h3>
 
-                    {/* Achievement Description */}
                     <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Created{' '}
+                      Recently led Turing&apos;s{' '}
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">CTP platform migration</span>
+                      {' '}across dev, preprod and prod GCP projects with Terraform, Kubernetes, WIF, Keycloak, GitHub Actions,
+                      observability, and zero-downtime cutover planning. Also created{' '}
                       <a href="https://rigour.run" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-600 dark:text-blue-400 hover:underline">Rigour</a>
                       {' '}&mdash; an open-source quality gate system with{' '}
                       <span className="font-bold text-green-600 dark:text-green-400">19 deterministic gates</span>,{' '}
                       <span className="font-bold text-purple-600 dark:text-purple-400">44 releases on NPM</span>,{' '}
-                      and MCP integration for Claude, Cursor &amp; VS Code. Also built{' '}
+                      and MCP integration for Claude, Cursor &amp; VS Code, plus{' '}
                       <a href="https://rigovo.com" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-600 dark:text-blue-400 hover:underline">Rigovo</a>
                       , an AI interviewer processing{' '}
                       <span className="font-bold text-orange-600 dark:text-orange-400">6,824 signal events</span>{' '}

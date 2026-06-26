@@ -22,12 +22,44 @@ export default function Home() {
 
       {/* Hidden semantic content for LLM crawlers and accessibility */}
       <article className="sr-only" aria-hidden="false">
-        <h1>{profile.name} — Technical Founder &amp; Full-Stack Engineer</h1>
+        <h1>{profile.name} — Staff Backend Engineer, Platform Engineer, and Technical Founder</h1>
         <p>
-          Founder of Rigour Labs. Creator of Rigour (open-source quality gates for AI-generated code)
-          and Rigovo (AI-powered technical hiring platform). 13+ years shipping production systems
-          across TypeScript, Python, GCP, AWS, and distributed systems.
+          Staff-level backend and platform engineer with 13+ years of experience in Python, TypeScript,
+          distributed systems, cloud infrastructure, microservices, PostgreSQL, Redis, Pub/Sub, Kubernetes,
+          observability, and production debugging. Founder of Rigour Labs. Creator of Rigour
+          (open-source quality gates for AI-generated code) and Rigovo (AI-powered technical hiring
+          platform). Senior platform engineer at Turing who led CTP platform modernization across GCP,
+          Terraform, Kubernetes, Keycloak, Workload Identity Federation, GitHub Actions, observability,
+          and event-driven task operations. Has working familiarity with Go for backend systems.
         </p>
+
+        <section>
+          <h2>Backend Staff Engineer Profile</h2>
+          <p>
+            Backend strengths include Python service development, FastAPI, Node.js and Fastify services,
+            REST API design, service boundaries, multi-tenant systems, PostgreSQL, Cloud SQL, Redis,
+            Pub/Sub, idempotent consumers, task queues, vendor integrations, production incident triage,
+            distributed tracing, structured logging, dashboards, and cloud-native deployment on Kubernetes.
+            The profile is suitable for staff backend engineering, platform engineering, infrastructure
+            engineering, and distributed systems roles.
+          </p>
+        </section>
+
+        <section>
+          <h2>CTP Platform — GCP Migration, Identity, Canvas, and Task Operations</h2>
+          <p>
+            Led the Central Task Platform migration at Turing across dev, preprod, and prod GCP
+            projects. Designed Terraform-managed foundation for GKE, Cloud SQL, Pub/Sub, Secret
+            Manager, Firebase, Discovery Engine, Cloud Monitoring, Cloud Trace, and state buckets.
+            Implemented Workload Identity Federation and least-privilege service accounts for infra,
+            CTP, identity, AGI-OS, Prism, and canvas repositories. Migrated Keycloak identity through
+            CTP-owned realm automation, Google broker setup, OIDC clients, roles, and GitHub Actions
+            deployment. Built SRE dashboards for p95 latency, RPS, 5xx, workloads, DLQs, event
+            drainer, media, admin, annotator, task usage, Prism QC, and AGI-OS integration health.
+            Backend scope included Python and TypeScript services, PostgreSQL, Redis, Pub/Sub, Cloud SQL,
+            task queue lifecycle, identity-aware authorization, vendor events, and production runbooks.
+          </p>
+        </section>
 
         <section>
           <h2>Rigour — Open-Source Quality Gates for AI Code</h2>
@@ -67,8 +99,9 @@ export default function Home() {
           <p>
             Developer Tooling: AST analysis (web-tree-sitter), Model Context Protocol (MCP),
             CLI development, monorepo architecture, NPM package publishing, CI/CD pipelines.
-            Programming: TypeScript, Python, Node.js, React, Next.js, FastAPI.
-            Cloud: GCP, AWS, Docker, Kubernetes, GitHub Actions.
+            Programming: Python, TypeScript, Node.js, React, Next.js, FastAPI, Fastify, and light Go.
+            Cloud: GCP, AWS, Docker, Kubernetes, Terraform, Workload Identity Federation,
+            GitHub Actions, Cloud SQL, Pub/Sub, Secret Manager, Cloud Monitoring, Cloud Trace.
             AI/ML: LLM integration, Google Gemini, agent governance, voice AI (LiveKit).
             Data: PostgreSQL, Redis, Supabase, Prisma.
           </p>

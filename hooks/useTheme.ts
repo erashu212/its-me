@@ -5,37 +5,41 @@ import { useState, useEffect } from 'react';
 type Theme = 'light' | 'dark';
 type ThemeMode = 'auto' | 'light' | 'dark';
 
+// Check if it's daytime (6 AM - 6 PM)
+const isDaytime = () => {
+  const hour = new Date().getHours();
+  return hour >= 6 && hour < 18;
+};
+
+// Get system preference
+const getSystemTheme = (): Theme => {
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  ) {
+    return 'dark';
+  }
+  return 'light';
+};
+
+// Determine theme based on mode
+const determineTheme = (mode: ThemeMode): Theme => {
+  if (mode === 'auto') {
+    // First check system preference, fallback to time-based
+    const systemTheme = getSystemTheme();
+    if (systemTheme === 'dark' || !isDaytime()) {
+      return 'dark';
+    }
+    return 'light';
+  }
+  return mode;
+};
+
 export const useTheme = () => {
   const [themeMode, setThemeMode] = useState<ThemeMode>('auto');
   const [currentTheme, setCurrentTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
-
-  // Check if it's daytime (6 AM - 6 PM)
-  const isDaytime = () => {
-    const hour = new Date().getHours();
-    return hour >= 6 && hour < 18;
-  };
-
-  // Get system preference
-  const getSystemTheme = (): Theme => {
-    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  };
-
-  // Determine theme based on mode
-  const determineTheme = (mode: ThemeMode): Theme => {
-    if (mode === 'auto') {
-      // First check system preference, fallback to time-based
-      const systemTheme = getSystemTheme();
-      if (systemTheme === 'dark' || !isDaytime()) {
-        return 'dark';
-      }
-      return 'light';
-    }
-    return mode;
-  };
 
   // Initialize theme from localStorage after mount
   useEffect(() => {

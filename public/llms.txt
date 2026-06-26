@@ -1,61 +1,123 @@
-# Ashutosh Singh — Technical Founder & Full-Stack Engineer
+# Ashutosh Singh — Staff Backend & Platform Engineer
 
-> Founder of Rigour Labs. Builder of Rigour and Rigovo. 13+ years shipping production systems.
+> Staff-level backend and platform engineer with 13+ years of experience in Python, TypeScript, distributed systems, cloud infrastructure, Kubernetes, GCP, AWS, observability, and production reliability.
 
 ## About
 
-Ashutosh Singh is a technical founder and full-stack engineer based in Pune, India. He builds developer tools and AI-powered platforms from scratch and ships them to production. He has 13+ years of engineering experience spanning TypeScript, Python, distributed systems, cloud infrastructure (GCP, AWS), and the AI agent ecosystem.
+Ashutosh Singh is a staff backend and platform engineer based in Pune, India. He builds production backend systems, cloud platforms, developer tooling, and AI-powered products. His recent work includes leading the CTP platform migration at Turing across GCP, Terraform, Kubernetes, Keycloak, Workload Identity Federation, GitHub Actions, Cloud SQL, Pub/Sub, Redis, Secret Manager, Firebase, Discovery Engine, Cloud Monitoring, and Cloud Trace.
+
+He is also the founder of Rigour Labs and creator of Rigour and Rigovo.
+
+## Backend Staff Engineer Profile
+
+Relevant backend strengths:
+
+- Python backend services and FastAPI.
+- TypeScript backend services with Node.js and Fastify.
+- REST API design, service boundaries, and multi-tenant systems.
+- PostgreSQL, Cloud SQL, Redis, Prisma, Firestore, and Supabase.
+- Pub/Sub, event-driven architecture, idempotent consumers, task queues, DLQs, and event drainer patterns.
+- Kubernetes, GKE, Terraform, Workload Identity Federation, Secret Manager, and GitHub Actions.
+- Keycloak, OIDC, identity migration, SSO, IAM, and least-privilege access.
+- Production debugging, structured logging, correlation IDs, Cloud Monitoring, Cloud Trace, SRE dashboards, and runbooks.
+- Working familiarity with Go for backend systems.
+
+## Turing CTP Platform
+
+CTP is a task-operations platform connecting AGI-OS, Prism, identity, trainer workflows, task queues, media, QC, and canvas experiences.
+
+Ashutosh led the modernization and migration across dev, preprod, and prod GCP projects:
+
+- Designed Terraform-managed GCP foundation with isolated state buckets and mandatory team/cost labels.
+- Built Workload Identity Federation for infra, CTP, identity, AGI-OS, Prism, and canvas repositories.
+- Provisioned and managed GKE, Cloud SQL, Pub/Sub, Secret Manager containers, Firebase, Discovery Engine, IAM, and monitoring.
+- Migrated Keycloak identity to new endpoints with CTP-owned realm automation for Google broker, OIDC clients, roles, scopes, and admin bridge client.
+- Built branch-based deployment and validation flow to avoid downtime during migration.
+- Created Google Cloud Monitoring dashboards for p95 latency, RPS, 5xx, workloads, DLQs, event drainer, media/admin/annotator services, task usage, Prism QC, and AGI-OS integrations.
+- Hardened task-queue lifecycle so seeded tasks are available for claim, claimed tasks track ownership, and submitted tasks enter QC cleanly.
 
 ## Products Built
 
 ### Rigour — Open-Source Quality Gates for AI-Generated Code
+
 - Website: https://rigour.run
 - Documentation: https://docs.rigour.run
 - GitHub: https://github.com/rigour-labs/rigour
 - NPM: https://www.npmjs.com/package/@rigour-labs/cli
 - License: MIT
 
-Rigour is a local-first, deterministic quality gate system that sits between AI coding agents and the codebase. It prevents AI agents from shipping code with TODO comments, God files, complexity violations, and security vulnerabilities. Key capabilities:
+Rigour is a local-first, deterministic quality gate system that sits between AI coding agents and the codebase. It prevents AI agents from shipping TODO comments, God files, complexity violations, and security vulnerabilities.
 
-- 19 quality gates: AST-based complexity analysis (cyclomatic complexity, method count, nesting depth), security vulnerability detection (SQLi, XSS, CSRF, prototype pollution, hardcoded secrets), content hygiene, file size enforcement, and structural requirements.
-- Fix Packet v2 schema: structured JSON diagnostics that agents consume to self-heal without human intervention.
-- MCP server integration: native support for Claude Desktop, Cursor, Cline, and VS Code via Model Context Protocol.
-- Multi-agent governance: scope isolation, conflict detection, checkpoint supervision, and context drift prevention.
-- Supervisor Mode: iterative agent execution with automated gate checks and feedback loops.
-- Supports TypeScript, JavaScript, and Python via web-tree-sitter AST parsing.
-- 44 semantic releases on NPM. Zero cloud dependencies. Fully local execution.
-- Tech stack: TypeScript (strict mode), Node.js, web-tree-sitter, Zod, pnpm monorepo, Vitest, GitHub Actions CI (Ubuntu/macOS/Windows).
+Key capabilities:
+
+- 19 quality gates.
+- AST-based complexity analysis with web-tree-sitter.
+- Security vulnerability detection.
+- Fix Packet v2 schema for agent self-healing.
+- MCP server integration for Claude Desktop, Cursor, Cline, and VS Code.
+- Multi-agent governance with scope isolation and conflict detection.
+- TypeScript, JavaScript, and Python support.
+- 44 semantic releases on NPM.
 
 ### Rigovo — AI-Powered Technical Hiring Platform
+
 - Website: https://rigovo.com
 - Product: https://rigovo.com/product
 
-Rigovo (formerly TalentLyt) deploys Maya, an autonomous AI interviewer that conducts 20-45 minute adaptive technical interviews via voice. Key capabilities:
+Rigovo deploys Maya, an autonomous AI interviewer that conducts 20-45 minute adaptive technical interviews via voice.
 
-- 15-signal real-time verification engine covering identity (AWS Rekognition + face-api.js), behavioral analysis, and technical depth.
-- AI Collaboration Depth measurement: distinguishes candidates who lead AI tools from those who passively depend on them.
-- Evidence reports with skill-by-skill scoring, hire/no-hire recommendations, and job success predictions with confidence intervals.
-- Full billing via Stripe, enterprise SSO via WorkOS, GDPR/CCPA data pipelines.
-- Adversarial detection, bias auditor, and reinforcement learning pipeline for interview quality.
+Key capabilities:
+
+- 15-signal real-time verification engine.
+- AI Collaboration Depth measurement.
+- Evidence reports with skill-by-skill scoring.
+- Stripe billing, WorkOS SSO, GDPR/CCPA data pipelines.
 - 82 beta interviews processed, generating 6,824 signal events.
-- Tech stack: Next.js, TypeScript, React, LiveKit, Prisma, Supabase, AWS Rekognition, Google Gemini, Stripe, WorkOS, Upstash Redis, Sentry, PostHog, Docker.
-- SOC 2 Type II ready, GDPR and CCPA compliant.
 
 ## Professional Experience
 
-- Turing (2025-Present): Delivery Manager / Senior Engineering Manager — AI/AGI platforms, distributed agent systems (OSWorld++, CARE, Atlas)
-- ICE Mortgage Technology (2020-2025): Senior Software Engineer / Lead / Staff — Encompass platform, cloud migration, AI analytics
-- Xoriant Solutions (2017-2020): Technical Lead — AWS data pipelines
-- Globant, Tavisca Solutions, Aloha Technology (2012-2017): Senior Software Engineer
+- Turing: Senior Staff Engineer / Platform Engineering — CTP, identity, AGI-OS, Prism, cloud platform migration, backend systems, observability, and distributed event workflows.
+- ICE Mortgage Technology: Senior Software Engineer / Lead / Staff — Encompass platform, cloud migration, AI analytics, CI/CD, and backend systems.
+- Xoriant Solutions: Technical Lead — AWS data pipelines.
+- Globant, Tavisca Solutions, Aloha Technology: Senior Software Engineer.
 
 ## Technical Skills
 
-Primary: TypeScript, Python, Node.js, React, Next.js
-Developer Tooling: AST analysis (web-tree-sitter), MCP Protocol, CLI development, monorepo architecture (pnpm), NPM package publishing
-Cloud: GCP, AWS, Docker, Kubernetes, GitHub Actions
-AI/ML: LLM integration, Google Gemini, agent governance, reinforcement learning
-Data: PostgreSQL, Redis, Supabase, Prisma, Firestore
-Infrastructure: LiveKit, Stripe, WorkOS, Sentry, PostHog
+Primary:
+
+- Python
+- TypeScript
+- Node.js
+- FastAPI
+- Fastify
+- PostgreSQL
+- Redis
+- Pub/Sub
+- Kubernetes
+- Terraform
+- GCP
+- AWS
+- GitHub Actions
+- Keycloak/OIDC
+- Cloud Monitoring and Cloud Trace
+- Go familiarity
+
+Developer tooling:
+
+- AST analysis
+- Model Context Protocol
+- CLI development
+- Monorepo architecture
+- NPM package publishing
+- CI/CD
+
+AI/ML:
+
+- LLM integration
+- Google Gemini
+- Agent governance
+- Voice AI
+- Model validation
 
 ## Contact
 

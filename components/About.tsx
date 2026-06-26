@@ -6,7 +6,7 @@ import { profile } from '@/data/profile';
 
 const About = () => {
   const achievements = [
-    { number: '2', label: 'Products Shipped', icon: Zap },
+    { number: '3', label: 'Platforms Shipped', icon: Zap },
     { number: '44', label: 'NPM Releases', icon: Code },
     { number: '19', label: 'Quality Gates Built', icon: Target },
     { number: '13+', label: 'Years Engineering', icon: Award },
@@ -27,15 +27,15 @@ const About = () => {
     },
     {
       icon: Users,
-      title: 'Engineering Leadership',
+      title: 'Platform Architecture & Migration',
       description:
-        'Led cross-functional teams at Turing and ICE Mortgage Technology. Mentored 12+ engineers, delivered 30+ projects, and drove cloud migrations improving scalability by 48%.',
+        'Led CTP and identity migration across dev, preprod, and prod GCP projects with Terraform, Workload Identity Federation, Keycloak, GitHub Actions, Kubernetes, and SRE dashboards.',
     },
     {
       icon: Target,
       title: 'Full-Stack Production Systems',
       description:
-        'TypeScript, Python, Node.js, React, GCP, AWS. Comfortable across the entire stack from AST parsers to CI/CD pipelines to voice AI systems.',
+        'Python, TypeScript, Node.js, FastAPI, Fastify, PostgreSQL, Redis, Pub/Sub, GCP, AWS, and Kubernetes. Comfortable from backend APIs and data models to CI/CD and production debugging.',
     },
   ];
 
@@ -74,7 +74,7 @@ const About = () => {
               <span className="text-gradient">About Me</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Technical founder who builds production systems from scratch &mdash; then ships them
+              Staff-level backend and platform engineer who builds production systems from scratch &mdash; then ships them
             </p>
           </motion.div>
 
@@ -109,18 +109,24 @@ const About = () => {
               <div className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-3 sm:space-y-4">
                 <p>{profile.summary}</p>
                 <p>
-                  Most recently built{' '}
+                  Most recently built and migrated{' '}
+                  <strong className="text-emerald-600 dark:text-emerald-400">CTP</strong> at Turing &mdash; a
+                  multi-team task-operations platform spanning GCP, Terraform, Kubernetes, Keycloak, Secret Manager,
+                  Pub/Sub, Cloud SQL, Firebase, Discovery Engine, GitHub Actions, and observability. Backend work spans
+                  Python services, TypeScript/Fastify services, PostgreSQL, Redis, queues, idempotent event flows, and
+                  production debugging. Also built{' '}
                   <strong className="text-blue-600 dark:text-blue-400">Rigour</strong> &mdash; an open-source quality gate system
                   with 19 deterministic gates, AST-based complexity analysis, security vulnerability detection,
                   and an MCP server for{' '}
                   <strong className="text-indigo-600 dark:text-indigo-400">Claude Desktop, Cursor, and VS Code</strong>.
-                  Also created <strong className="text-purple-600 dark:text-purple-400">Rigovo</strong>, an AI interviewer
+                  Created <strong className="text-purple-600 dark:text-purple-400">Rigovo</strong>, an AI interviewer
                   with voice interaction and real-time 15-signal verification.
                 </p>
                 <p>
-                  Before founding, led engineering at Turing (AI/AGI platforms, distributed agent systems)
-                  and ICE Mortgage Technology (cloud migration, CI/CD, analytics). 13+ years across
-                  TypeScript, Python, GCP, AWS, and distributed systems.
+                  Before and alongside founder work, led engineering at Turing (AI/AGI platforms, identity, task
+                  operations, distributed event systems) and ICE Mortgage Technology (cloud migration, CI/CD,
+                  analytics). 13+ years across Python, TypeScript, GCP, AWS, Kubernetes, distributed systems, and a
+                  light working familiarity with Go for backend services.
                 </p>
               </div>
             </div>
