@@ -5,12 +5,24 @@ import { motion } from 'framer-motion';
 import { Code, Cloud, Database, Settings, Users, Brain, Award } from 'lucide-react';
 
 type Skill = { name: string; level: number; color: string };
-type CategoryKey = 'programming' | 'cloud' | 'backend' | 'data' | 'ai' | 'leadership';
+type CategoryKey = 'devtools' | 'programming' | 'cloud' | 'backend' | 'data' | 'ai' | 'leadership';
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>('programming');
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('devtools');
 
   const skillCategories: Record<CategoryKey, { title: string; icon: typeof Code; skills: Skill[] }> = {
+    devtools: {
+      title: 'Developer Tooling',
+      icon: Settings,
+      skills: [
+        { name: 'AST Analysis (web-tree-sitter)', level: 92, color: 'from-amber-400 to-orange-600' },
+        { name: 'MCP Protocol (Model Context Protocol)', level: 90, color: 'from-purple-400 to-purple-600' },
+        { name: 'CLI Development (Commander, Zod)', level: 88, color: 'from-cyan-400 to-cyan-600' },
+        { name: 'Monorepo Architecture (pnpm)', level: 85, color: 'from-emerald-400 to-emerald-600' },
+        { name: 'Code Quality & Static Analysis', level: 92, color: 'from-blue-400 to-blue-600' },
+        { name: 'NPM Package Publishing & CI/CD', level: 90, color: 'from-rose-400 to-rose-600' },
+      ],
+    },
     programming: {
       title: 'Programming',
       icon: Code,
@@ -189,24 +201,26 @@ const Skills = () => {
             <h3 className="text-3xl font-bold text-center mb-8 text-gradient">Key Technologies</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                'Python',
                 'TypeScript',
+                'Python',
+                'AST Analysis',
+                'MCP Protocol',
+                'web-tree-sitter',
+                'Zod',
+                'Node.js',
+                'React',
                 'GCP',
                 'AWS',
-                'Kubernetes',
+                'pnpm Monorepo',
+                'GitHub Actions',
+                'Vitest',
                 'FastAPI',
-                'PostgreSQL',
-                'Redis',
+                'Voice AI',
                 'LLM',
-                'AGI',
-                'RAG',
-                'MLOps',
-                'CI/CD',
-                'Terraform',
                 'Docker',
-                'Microservices',
-                'Team Leadership',
-                'Project Management',
+                'Kubernetes',
+                'CI/CD',
+                'Open Source',
               ].map((tech, index) => (
                 <motion.span
                   key={tech}

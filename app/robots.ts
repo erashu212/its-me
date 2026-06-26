@@ -10,24 +10,29 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/private/'],
       },
+      // LLM crawlers — explicitly allowed
       {
-        userAgent: 'GPTBot', // OpenAI's crawler
+        userAgent: 'GPTBot', // OpenAI
         allow: '/',
       },
       {
-        userAgent: 'ChatGPT-User', // ChatGPT user agent
+        userAgent: 'ChatGPT-User', // ChatGPT browsing
         allow: '/',
       },
       {
-        userAgent: 'Google-Extended', // Google's AI training crawler
+        userAgent: 'Google-Extended', // Google AI / Gemini
         allow: '/',
       },
       {
-        userAgent: 'anthropic-ai', // Claude's crawler
+        userAgent: 'anthropic-ai', // Anthropic
         allow: '/',
       },
       {
-        userAgent: 'ClaudeBot', // Claude's bot
+        userAgent: 'ClaudeBot', // Claude
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-Web', // Claude web browsing
         allow: '/',
       },
       {
@@ -39,7 +44,19 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: 'Bytespider', // ByteDance (TikTok)
+        userAgent: 'Bytespider', // ByteDance
+        allow: '/',
+      },
+      {
+        userAgent: 'cohere-ai', // Cohere
+        allow: '/',
+      },
+      {
+        userAgent: 'Meta-ExternalAgent', // Meta AI
+        allow: '/',
+      },
+      {
+        userAgent: 'YouBot', // You.com
         allow: '/',
       },
     ],

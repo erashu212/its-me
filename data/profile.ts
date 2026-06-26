@@ -1,6 +1,7 @@
 export type ProjectStatus = 'Production' | 'In Development' | 'Completed';
 
 export type ProjectCategory =
+  | 'Founder Project'
   | 'AI/AGI Platform'
   | 'AI/ML Platform'
   | 'Enterprise Platform'
@@ -55,11 +56,11 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Ashutosh Singh',
-  titles: ['Senior Engineering Manager', 'Delivery'],
+  titles: ['Engineer. Founder. Builder.', 'I ship products from zero to production.'],
   location: 'Pune, India',
   phone: '+91-9503999217',
   email: 'ashu.singh212@gmail.com',
-  image: 'https://media.licdn.com/dms/image/v2/D4D03AQHmXaLh_gO1Zg/profile-displayphoto-scale_200_200/B4DZoACqz.IgAY-/0/1760937292687?e=1762992000&v=beta&t=IJZwQweSPvdxtHxFcuTV5BVH3dfJA7ym0lOTqJxCTEg',
+  image: 'https://media.licdn.com/dms/image/v2/D4D03AQHuAnUbAUomLA/profile-displayphoto-scale_400_400/B4DZwNwsEcGYAk-/0/1769757395412?e=1772668800&v=beta&t=QrxAqyyWZo5kiWny3ew7ENxpEDydhnhltx-OCm0YNK0',
   // Replace this with your actual hosted resume PDF URL (e.g., Google Drive, Dropbox, or GitHub)
   resumeUrl: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID',
   socials: {
@@ -68,7 +69,7 @@ export const profile: Profile = {
     stackoverflow: 'https://stackoverflow.com/users/1033171/ashutosh-singh',
   },
   summary:
-    'Engineering leader with 13+ years delivering AI/ML platforms and large-scale software. Deep expertise in microservices, MLOps, and cloud-native delivery on GCP and AWS.',
+    'Technical founder and full-stack engineer with 13+ years of experience. Built and shipped two products from zero: Rigour (open-source quality gates for AI-generated code, 44 releases on NPM) and Rigovo (AI-powered technical hiring platform). Deep expertise in TypeScript, distributed systems, developer tooling, and the AI agent ecosystem.',
   metrics: {
     yearsExperience: 13,
     usersImpacted: '100K+',
@@ -79,7 +80,107 @@ export const profile: Profile = {
 export const projects: Project[] = [
   {
     id: 0,
-    title: 'OSWorld++ – Distributed AI Workspace with Multi-VM Automation',
+    title: 'Rigour - Quality Gates for AI-Generated Code',
+    company: 'Rigour Labs (Founder)',
+    period: 'Jan 2026 - Present',
+    role: 'Founder & Solo Engineer',
+    description:
+      'Open-source system that forces AI coding agents to write production-grade code. Sits between the agent and the codebase, enforcing structural, complexity, and security standards before code ships.',
+    longDescription:
+      'AI agents routinely claim "done" while leaving TODO comments, God files, and complexity violations. Rigour solves this with a stateless feedback loop: deterministic quality gates check the filesystem, produce structured Fix Packets (machine-readable JSON diagnostics), and the agent self-heals. No cloud, no telemetry, fully local. Published on NPM with 44 semantic releases, MIT licensed, with MCP server integration for Claude Desktop, Cursor, and VS Code.',
+    technologies: [
+      'TypeScript',
+      'Node.js',
+      'web-tree-sitter',
+      'AST Analysis',
+      'Zod',
+      'MCP Protocol',
+      'Vitest',
+      'pnpm Monorepo',
+      'GitHub Actions',
+    ],
+    achievements: [
+      'Engineered 19 quality gates: cyclomatic complexity, method count, nesting depth, file size, content hygiene, security vulnerabilities (SQLi, XSS, CSRF, prototype pollution)',
+      'Invented Fix Packet v2 schema \u2014 structured JSON diagnostics that agents consume to self-heal without human intervention',
+      'Built multi-agent governance: scope isolation, conflict detection, checkpoint supervision, context drift prevention',
+      'Implemented MCP server for native integration with Claude Desktop, Cursor, Cline, and VS Code',
+      'Architected as a pnpm monorepo (4 packages, ~3,300 SLOC) with strict TypeScript and Zod schema validation',
+      'Published 44 semantic releases across @rigour-labs/core, @rigour-labs/cli, and @rigour-labs/mcp on NPM',
+      'Built Supervisor Mode: iterative agent execution with automated gate checks and Fix Packet feedback loops',
+      'Supports TypeScript, JavaScript, and Python via web-tree-sitter AST analysis with universal fallback',
+    ],
+    impact: {
+      releases: '44 on NPM',
+      gates: '19 Quality Gates',
+      languages: '3 Languages',
+      cloud: 'Zero Dependencies',
+    },
+    links: [
+      { label: 'Website', url: 'https://rigour.run' },
+      { label: 'Documentation', url: 'https://docs.rigour.run' },
+      { label: 'GitHub', url: 'https://github.com/rigour-labs/rigour' },
+      { label: 'NPM', url: 'https://www.npmjs.com/package/@rigour-labs/cli' },
+    ],
+    category: 'Founder Project',
+    status: 'Production',
+  },
+  {
+    id: 1,
+    title: 'Rigovo - AI-Powered Technical Hiring Platform',
+    company: 'Rigour Labs (Founder)',
+    period: '2025 - 2026',
+    role: 'Founder & Lead Engineer',
+    description:
+      'Autonomous AI interviewer that conducts voice-based technical interviews with real-time signal verification, replacing the need for human screening rounds.',
+    longDescription:
+      'Rigovo (formerly TalentLyt) deploys Maya, an AI interviewer that conducts 20\u201345 minute adaptive technical interviews via voice. Instead of blocking AI tool usage, it measures AI Collaboration Depth \u2014 distinguishing candidates who lead AI tools from those who passively depend on them. A 15-signal verification engine monitors identity, engagement, and technical depth continuously throughout each session, producing evidence reports with integrity scores and job success predictions.',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'React',
+      'LiveKit',
+      'Prisma',
+      'Supabase',
+      'AWS Rekognition',
+      'face-api.js',
+      'Google Gemini',
+      'Stripe',
+      'Sentry',
+      'PostHog',
+      'Resend',
+      'WorkOS Auth',
+      'Upstash Redis',
+      'Zod',
+      'Python',
+      'Docker',
+    ],
+    achievements: [
+      'Built autonomous AI interviewer (Maya) conducting 20\u201345 minute voice-based technical interviews via LiveKit with adaptive follow-up',
+      'Designed 15-signal real-time verification engine: identity (AWS Rekognition + face-api.js), behavioral analysis, and technical depth',
+      'Created AI Collaboration Depth measurement \u2014 distinguishing AI Leaders from AI Passengers using Google Gemini',
+      'Built full billing system with Stripe integration, marketplace, and enterprise SSO via WorkOS',
+      'Implemented GDPR data pipeline with export/deletion APIs, audit trails, and AES-256 encryption',
+      'Built adversarial detection services, bias auditor, and reinforcement learning pipeline for interview quality',
+      'Processed 82 beta interviews generating 6,824 signal events during pilot phase',
+      'Evidence reports with skill-by-skill scoring, hire/no-hire recommendations, and job success predictions with confidence intervals',
+      'Deployed on Vercel + Docker with GCP/Azure/AWS multi-cloud infrastructure, Sentry observability, and PostHog analytics',
+    ],
+    impact: {
+      interviews: '82 Beta Sessions',
+      signals: '6,824 Events',
+      verification: '15-Signal Engine',
+      compliance: 'SOC 2 + GDPR + CCPA',
+    },
+    links: [
+      { label: 'Website', url: 'https://rigovo.com' },
+      { label: 'Product', url: 'https://rigovo.com/product' },
+    ],
+    category: 'Founder Project',
+    status: 'Production',
+  },
+  {
+    id: 2,
+    title: 'OSWorld++ \u2013 Distributed AI Workspace with Multi-VM Automation',
     company: 'Turing',
     period: '2025',
     role: 'Engineering Manager & Platform Architect',
@@ -133,7 +234,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 1,
+    id: 3,
     title: 'CARE Platform – Cloud-Native RL Environment for Code Agents',
     company: 'Turing',
     period: '2025',
@@ -184,7 +285,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 2,
+    id: 4,
     title: 'Atlas Auto-Rater - AI Evaluation Platform',
     company: 'Turing',
     period: '2025 - Present',
@@ -224,7 +325,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 3,
+    id: 5,
     title: 'Atlas Platform - Reasoning & Benchmarking System',
     company: 'Turing',
     period: '2025 - Present',
@@ -266,7 +367,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 4,
+    id: 6,
     title: 'Rag Seed Project - Algorithmic Reasoning Platform',
     company: 'Turing',
     period: '2025',
@@ -306,7 +407,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 5,
+    id: 7,
     title: 'Atlas-Workflow - LLM Pipeline Orchestration',
     company: 'Turing',
     period: '2025 - Ongoing',
@@ -346,7 +447,7 @@ export const projects: Project[] = [
     status: 'In Development',
   },
   {
-    id: 6,
+    id: 8,
     title: 'ICE Mortgage Technology - Encompass Platform',
     company: 'ICE Mortgage Technology',
     period: '2020 - 2025',
@@ -390,7 +491,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 7,
+    id: 9,
     title: 'AI/ML Analytics & LLM Tools',
     company: 'ICE Mortgage Technology',
     period: '2024 - 2025',
@@ -427,7 +528,7 @@ export const projects: Project[] = [
     status: 'Production',
   },
   {
-    id: 8,
+    id: 10,
     title: 'AWS Data Pipeline Architecture',
     company: 'Xoriant Solutions',
     period: '2017 - 2020',
@@ -465,7 +566,7 @@ export const projects: Project[] = [
     status: 'Completed',
   },
   {
-    id: 9,
+    id: 11,
     title: 'Enterprise Software Solutions',
     company: 'Multiple Companies',
     period: '2012 - 2017',

@@ -1,12 +1,25 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, MapPin, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Download, Mail, MapPin, Phone, Github, Linkedin, ExternalLink, Check, Copy } from 'lucide-react';
 import { profile } from '@/data/profile';
 import VideoProfile from './VideoProfile';
 
 const Hero = () => {
   const { name, titles, location, phone, email, resumeUrl, socials, summary } = profile;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback: open mailto
+      window.location.href = `mailto:${email}`;
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -148,17 +161,21 @@ const Hero = () => {
                   <div className="flex-1 min-w-0">
                     {/* Title */}
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Featured Achievement
+                      Built &amp; Shipped from Zero
                     </h3>
 
                     {/* Achievement Description */}
                     <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Reduced OSWorld++ evaluation costs by{' '}
-                      <span className="font-bold text-green-600 dark:text-green-400">67%</span>{' '}
-                      through intelligent Pioneer/Follower caching architecture — saving{' '}
-                      <span className="font-bold text-blue-600 dark:text-blue-400">$16,757</span>{' '}
-                      per full run while maintaining{' '}
-                      <span className="font-bold text-purple-600 dark:text-purple-400">100% success rate</span>.
+                      Created{' '}
+                      <a href="https://rigour.run" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-600 dark:text-blue-400 hover:underline">Rigour</a>
+                      {' '}&mdash; an open-source quality gate system with{' '}
+                      <span className="font-bold text-green-600 dark:text-green-400">19 deterministic gates</span>,{' '}
+                      <span className="font-bold text-purple-600 dark:text-purple-400">44 releases on NPM</span>,{' '}
+                      and MCP integration for Claude, Cursor &amp; VS Code. Also built{' '}
+                      <a href="https://rigovo.com" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-600 dark:text-blue-400 hover:underline">Rigovo</a>
+                      , an AI interviewer processing{' '}
+                      <span className="font-bold text-orange-600 dark:text-orange-400">6,824 signal events</span>{' '}
+                      across 82 pilot interviews.
                     </p>
                   </div>
                 </div>
@@ -176,6 +193,22 @@ const Hero = () => {
                 <Mail className="w-5 h-5 mr-2" />
                 Email Me
               </a>
+              <button
+                onClick={handleCopyEmail}
+                className="btn-secondary inline-flex items-center justify-center hover:scale-105 active:scale-95 transition-transform"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-5 h-5 mr-2" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-5 h-5 mr-2" />
+                    Copy Email
+                  </>
+                )}
+              </button>
               {resumeUrl && resumeUrl !== 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' && (
                 <motion.a
                   href={resumeUrl}

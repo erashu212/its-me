@@ -74,6 +74,7 @@ const Projects = () => {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
+      case 'Founder Project': return Zap;
       case 'Enterprise Platform': return Database;
       case 'AI/ML Platform': return Brain;
       case 'AI/AGI Platform': return Zap;
@@ -85,6 +86,7 @@ const Projects = () => {
 
   const getCategoryAccent = (category: string) => {
     switch (category) {
+      case 'Founder Project': return 'from-amber-500 to-orange-500';
       case 'AI/AGI Platform': return 'from-purple-500 to-indigo-500';
       case 'AI/ML Platform': return 'from-pink-500 to-purple-500';
       case 'Enterprise Platform': return 'from-blue-500 to-cyan-500';

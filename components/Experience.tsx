@@ -16,7 +16,7 @@ type ExperienceItem = {
 const experiences: ExperienceItem[] = [
   {
     company: 'Turing',
-    position: 'Delivery Manager / Senior Engineering Manager',
+    position: 'Senior Staff Engineer (Platform Engineering)',
     location: 'Remote, India',
     period: 'Jul 2025 - Present',
     type: 'current',
